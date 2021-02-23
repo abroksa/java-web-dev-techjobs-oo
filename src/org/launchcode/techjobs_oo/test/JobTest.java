@@ -14,6 +14,7 @@ public class JobTest {
     public Job acmeTester;
     public Job graveDigger;
     public Job graveDigger2;
+    public Job graveDigger3;
 
     @Before
   public void Job() {
@@ -25,6 +26,9 @@ public class JobTest {
         graveDigger2 = new Job("Junior Web Developer", new Employer("Cozy"),
                 new Location ("Portland"), new PositionType("Web - Back End"),
                 new CoreCompetency("Ruby"));
+        graveDigger3 = new Job("", new Employer(""),
+                new Location (""), new PositionType(""),
+                new CoreCompetency(""));
    }
 
    @Test
@@ -48,17 +52,32 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality() {
-assertEquals(false, graveDigger.equals(graveDigger2));
+        assertEquals(false, graveDigger.equals(graveDigger2));
     }
 
+    @Test
+    public void checksForNewLineChar() {
+        assertEquals (true, graveDigger.toString().startsWith("\n"));
+        assertEquals (true, graveDigger.toString().endsWith("\n"));
+    }
 
+    @Test
+    public void checksDataFormat() {
+        assertEquals(graveDigger.toString(), "\nID: " + graveDigger.getId() +
+                                                    "\nName: " + graveDigger.getName() +
+                                                    "\nEmployer: " + graveDigger.getEmployer() +
+                                                    "\nLocation: " + graveDigger.getLocation() +
+                                                    "\nPosition Type: " + graveDigger.getPositionType() +
+                                                    "\nCore Competency: " + graveDigger.getCoreCompetency() +
+                                                    "\n");
+    }
 
+    @Test
+    public void checksForDataNotAvailable() {
 
+        assertEquals (true, graveDigger3.toString().contains("Data not available"));
 
-//    @Test
-//    public void testEmployer() {
-//        assertEquals("Cozy", graveDigger.getEmployer().toString());
-//    }
+    }
 
 }
 
