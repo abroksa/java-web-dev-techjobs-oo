@@ -6,7 +6,7 @@ public class Job {
 
     private int id;
     private static int nextId = 1;
-
+    private String value;
     private String name;
     private Employer employer;
     private Location location;
@@ -22,6 +22,9 @@ public class Job {
         nextId++;
     }
 
+    public Job(String value) {
+        this.value = value;
+    }
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
@@ -30,7 +33,11 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
-
+    @Override
+    public String toString() {
+        this.value = value;
+        return value;
+    }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
