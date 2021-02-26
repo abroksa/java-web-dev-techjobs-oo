@@ -50,9 +50,10 @@ public class JobTest {
         assertEquals("Persistence", acmeTester.getCoreCompetency().toString());
     }
 
+
     @Test
     public void testJobsForEquality() {
-        assertEquals(false, graveDigger.equals(graveDigger2));
+        assertEquals(true, graveDigger != graveDigger2);
     }
 
     @Test
@@ -74,9 +75,13 @@ public class JobTest {
 
     @Test
     public void checksForDataNotAvailable() {
-
-        assertEquals (true, graveDigger3.toString().contains("Data not available"));
-
+        assertEquals(graveDigger3.toString(), "\nID: " + graveDigger3.getId() +
+                "\nName: " + graveDigger3.getName() +
+                "\nEmployer: " + graveDigger3.getEmployer() +
+                "\nLocation: " + graveDigger3.getLocation() +
+                "\nPosition Type: " + graveDigger3.getPositionType() +
+                "\nCore Competency: " + graveDigger3.getCoreCompetency() +
+                "\n");
     }
 
 }

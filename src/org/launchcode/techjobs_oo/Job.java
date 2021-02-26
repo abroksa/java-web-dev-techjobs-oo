@@ -39,7 +39,7 @@ public class Job {
     public String toString() {
         this.value = value;
         return "\nID: " + this.getId() +
-                "\nName: " + this.getName().toString() +
+                "\nName: " + this.getName() +
                 "\nEmployer: " + this.getEmployer() .toString()+
                 "\nLocation: " + this.getLocation().toString() +
                 "\nPosition Type: " + this.getPositionType().toString() +
